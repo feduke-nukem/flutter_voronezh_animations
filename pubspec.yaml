@@ -1,0 +1,28 @@
+name: flutter_voronezh_animations
+description: A new Flutter project.
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.19.2 <3.0.0"
+
+dependencies:
+  collection: ^1.17.0
+  flutter:
+    sdk: flutter
+  flutter_animate: ^4.1.1+1
+  flutter_easy_dialogs: ^2.0.8
+  full_screen_dialog_manager: ^1.0.4
+  positioned_dialog_manager: ^1.0.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets: 
+    - assets/
