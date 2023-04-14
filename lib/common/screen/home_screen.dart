@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_voronezh_animations/screen/complex_animations_screen.dart';
-import 'package:flutter_voronezh_animations/screen/animations_out_of_the_box_screen.dart';
-import 'package:flutter_voronezh_animations/screen/tips_screen.dart';
+import 'package:flutter_voronezh_animations/common/screen/tips_screen.dart';
 
+import 'animations_out_of_the_box_screen.dart';
 import 'basics_screen.dart';
+import 'complex_animations_screen.dart';
 import 'flutter_easy_dialogs_screen/flutter_easy_dialogs_screen.dart';
 
 class HomeScreen extends StatelessWidget {

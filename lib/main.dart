@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easy_dialogs/flutter_easy_dialogs.dart';
 import 'package:flutter_voronezh_animations/common/service/my_dialog_manager.dart';
-import 'package:flutter_voronezh_animations/screen/home_screen.dart';
 import 'package:full_screen_dialog_manager/full_screen_dialog_manager.dart';
 import 'package:positioned_dialog_manager/positioned_dialog_manager.dart';
+
+import 'common/screen/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
