@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_voronezh_animations/core/multiply_animation.dart';
-import 'package:flutter_voronezh_animations/core/play_animation_mixin.dart';
+import 'package:flutter_voronezh_animations/util/multiply_animation.dart';
+import 'package:flutter_voronezh_animations/util/play_animation_mixin.dart';
 
 /// На данный момент существует конкретное количество наследников [Animation]
 /// из коробки, которые позволяют решать некоторые проблемы.

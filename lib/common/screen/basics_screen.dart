@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_voronezh_animations/core/play_animation_mixin.dart';
+import 'package:flutter_voronezh_animations/util/play_animation_mixin.dart';
 import 'package:flutter_voronezh_animations/common/widget/expandable_floating_action_button.dart';
 
 final _lerpKey = GlobalKey<_LerpColoredBoxState>();

@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_voronezh_animations/core/multiply_animation.dart';
+import 'package:flutter_voronezh_animations/util/multiply_animation.dart';
 
 const _cookieDuration = Duration(milliseconds: 1550);
 const _abobusDuration = Duration(milliseconds: 1500);

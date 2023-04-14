@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_voronezh_animations/core/play_animation_mixin.dart';
+import 'package:flutter_voronezh_animations/util/play_animation_mixin.dart';
 import 'dart:math' as math;
 import 'package:collection/collection.dart';
 
