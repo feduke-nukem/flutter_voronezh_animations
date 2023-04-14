@@ -79,9 +79,8 @@ class _Dismissible extends FullScreenDismissible {
       key: UniqueKey(),
       resizeDuration: null,
       confirmDismiss: (direction) async {
-        await data.dismissHandler?.call(
-          const EasyDismissiblePayload(),
-        );
+        await data.dismissHandler
+            ?.call(const EasyDismissiblePayload(instantDismiss: true));
 
         return true;
       },
@@ -141,7 +140,6 @@ class _BackgroundAnimator extends FullScreenBackgroundAnimator {
   }
 }
 
-/// You can provide custom animation
 class CustomAnimator extends EasyDialogAnimator {
   const CustomAnimator();
 
@@ -218,7 +216,11 @@ class _FlutterAnimateDecorator extends EasyDialogAnimator {
           .animate(controller: data.parent as AnimationController)
           .fade()
           .rotate()
-          .scale(),
+          .scale()
+          .blur(
+            begin: const Offset(20.0, 20.0),
+            end: const Offset(0.0, 0.0),
+          ),
     );
   }
 }

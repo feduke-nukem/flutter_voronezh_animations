@@ -1,18 +1,18 @@
 part of 'flutter_easy_dialogs_screen.dart';
 
-const _foregroundBounce = 'bounce';
-const _foregroundFade = 'fade';
-const _foregroundExpansion = 'expansion';
-const _foregroundNone = 'none';
+const _fullScreenForegroundBounce = 'bounce';
+const _fullScreenForegroundFade = 'fade';
+const _fullScreenForegroundExpansion = 'expansion';
+const _fullScreenForegroundNone = 'none';
 
-const _backgroundFade = 'fade';
-const _backgroundBlur = 'blur';
-const _backgroundNone = 'none';
+const _fullScreenBackgroundFade = 'fade';
+const _fullScreenBackgroundBlur = 'blur';
+const _fullScreenBackgroundNone = 'none';
 
-const _dismissibleFullScreenTap = 'tap';
-const _dismissibleNone_ = 'none';
+const _fullScreenDismissibleTap = 'tap';
+const _fullScreenDismissibleNone = 'none';
 
-const _content = SizedBox.square(
+const _fullScreenContent = SizedBox.square(
   dimension: 200.0,
   child: Center(
     child: SizedBox.square(
@@ -24,28 +24,49 @@ const _content = SizedBox.square(
   ),
 );
 
+/// Перечисление всех доступных аниматоров для переднего плана.
+///
+/// * [FullScreenForegroundAnimator.bounce] - Анимация с эффектом "прыжка".
+///
+/// * [FullScreenForegroundAnimator.fade] - Fade эффект.
+///
+/// * [FullScreenForegroundAnimator.expansion] - Эффект разворачивания.
+///
+/// * [FullScreenForegroundAnimator.none] - Без анимации.
 const _foregroundAnimators = <String, FullScreenForegroundAnimator>{
-  _foregroundBounce: FullScreenForegroundAnimator.bounce(),
-  _foregroundFade: FullScreenForegroundAnimator.fade(),
-  _foregroundExpansion: FullScreenForegroundAnimator.expansion(),
-  _foregroundNone: FullScreenForegroundAnimator.none(),
+  _fullScreenForegroundBounce: FullScreenForegroundAnimator.bounce(),
+  _fullScreenForegroundFade: FullScreenForegroundAnimator.fade(),
+  _fullScreenForegroundExpansion: FullScreenForegroundAnimator.expansion(),
+  _fullScreenForegroundNone: FullScreenForegroundAnimator.none(),
 };
 
+/// Перечисление всех доступных аниматоров для фона.
+///
+/// * [FullScreenBackgroundAnimator.blur] - Размытие фона.
+///
+/// * [FullScreenBackgroundAnimator.fade] - Fade эффект.
+///
+/// * [FullScreenBackgroundAnimator.none] - Без анимации.
 final _backgroundAnimators = <String, FullScreenBackgroundAnimator>{
-  _backgroundBlur: FullScreenBackgroundAnimator.blur(
+  _fullScreenBackgroundBlur: FullScreenBackgroundAnimator.blur(
     start: 0.0,
     end: 10.0,
     backgroundColor: Colors.black.withOpacity(0.5),
   ),
-  _backgroundFade: FullScreenBackgroundAnimator.fade(
+  _fullScreenBackgroundFade: FullScreenBackgroundAnimator.fade(
     backgroundColor: Colors.black.withOpacity(0.5),
   ),
-  _backgroundNone: const FullScreenBackgroundAnimator.none(),
+  _fullScreenBackgroundNone: const FullScreenBackgroundAnimator.none(),
 };
 
+/// Перечисление всех доступных способов закрыть диалог взаимодействием пользователя.
+///
+/// * [FullScreenDismissible.tap] - Обычное нажатие.
+///
+/// * [FullScreenDismissible.none] - Без возможности закрытия взаимодействием.
 const _fullScreenDismissibles = <String, FullScreenDismissible>{
-  _dismissibleFullScreenTap: FullScreenDismissible.tap(),
-  _dismissibleNone_: FullScreenDismissible.none(),
+  _fullScreenDismissibleTap: FullScreenDismissible.tap(),
+  _fullScreenDismissibleNone: FullScreenDismissible.none(),
 };
 
 class _FullScreenExample extends StatefulWidget {
@@ -84,9 +105,9 @@ class _FullScreenExampleState extends State<_FullScreenExample> {
       )
       .toList();
 
-  var _selectedForegroundAnimator = _foregroundAnimators.entries.first.value;
-  var _selectedBackgroundAnimator = _backgroundAnimators.entries.first.value;
-  var _selectedDismissible = _fullScreenDismissibles.entries.first.value;
+  var _selectedForegroundAnimator = _foregroundAnimators.values.first;
+  var _selectedBackgroundAnimator = _backgroundAnimators.values.first;
+  var _selectedDismissible = _fullScreenDismissibles.values.first;
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +163,7 @@ class _FullScreenExampleState extends State<_FullScreenExample> {
             onPressed: () async {
               await _easyDialogManagerProvider.showFullScreen(
                 FullScreenShowParams(
-                  content: _content,
+                  content: _fullScreenContent,
                   foregroundAnimator: _selectedForegroundAnimator,
                   backgroundAnimator: _selectedBackgroundAnimator,
                   shell: FullScreenDialogShell.modalBanner(

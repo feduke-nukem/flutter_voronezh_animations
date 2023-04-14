@@ -97,8 +97,14 @@ class _FlutterAnimateAnimator extends PositionedAnimator {
   @override
   Widget decorate(PositionedAnimatorData data) {
     return data.dialog
+
+        /// Небольшой хак. Так как фактически manager передаёт [AnimationController]
+        /// как [Animation<double>] то можно сделать downcast.
         .animate(controller: data.parent as AnimationController)
         .scale(curve: Curves.fastOutSlowIn)
+        .shake()
+        .elevation()
+        .slide()
         .fadeIn();
   }
 }

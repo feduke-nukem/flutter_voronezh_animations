@@ -1,25 +1,27 @@
 part of 'flutter_easy_dialogs_screen.dart';
 
-const _expansionAnimator = 'expansion';
-const _fadeAnimator = 'fade';
-const _verticalSlideAnimator = 'verticalSlide';
+const _positionedExpansionAnimator = 'expansion';
+const _positionedFadeAnimator = 'fade';
+const _positionedVerticalSlideAnimator = 'verticalSlide';
 
-const _dismissibleTap = 'tap';
-const _dismissibleNone = 'none';
-const _dismissibleHorizontalSwipe = 'swipe';
-const _dismissibleAnimatedTap = 'animated tap';
+const _positionedDismissibleTap = 'tap';
+const _positionedDismissibleNone = 'none';
+const _positionedDismissibleHorizontalSwipe = 'swipe';
+const _positionedDismissibleAnimatedTap = 'animated tap';
 
-const _animators = <String, PositionedAnimator>{
-  _expansionAnimator: PositionedAnimator.expansion(),
-  _fadeAnimator: PositionedAnimator.fade(),
-  _verticalSlideAnimator: PositionedAnimator.verticalSlide(),
+/// Все доступные аниматоры для позиционных диалогов,
+const _positionedAnimators = <String, PositionedAnimator>{
+  _positionedExpansionAnimator: PositionedAnimator.expansion(),
+  _positionedFadeAnimator: PositionedAnimator.fade(),
+  _positionedVerticalSlideAnimator: PositionedAnimator.verticalSlide(),
 };
 
-const _dismissibles = <String, PositionedDismissible>{
-  _dismissibleTap: PositionedDismissible.tap(),
-  _dismissibleNone: PositionedDismissible.none(),
-  _dismissibleHorizontalSwipe: PositionedDismissible.swipe(),
-  _dismissibleAnimatedTap: PositionedDismissible.animatedTap(),
+/// Все доступные варианты закрытия позиционного диалога взаимодействием пользователя.
+const _positionedDismissibles = <String, PositionedDismissible>{
+  _positionedDismissibleTap: PositionedDismissible.tap(),
+  _positionedDismissibleNone: PositionedDismissible.none(),
+  _positionedDismissibleHorizontalSwipe: PositionedDismissible.swipe(),
+  _positionedDismissibleAnimatedTap: PositionedDismissible.animatedTap(),
 };
 
 class _PositionedExample extends StatefulWidget {
@@ -31,7 +33,7 @@ class _PositionedExample extends StatefulWidget {
 
 class _PositionedExampleState extends State<_PositionedExample> {
   final _easyDialogManagersProvider = FlutterEasyDialogs.provider;
-  final _animatorsDropDownItems = _animators.entries
+  final _animatorsDropDownItems = _positionedAnimators.entries
       .map(
         (e) => DropdownMenuItem<PositionedAnimator>(
           value: e.value,
@@ -47,7 +49,7 @@ class _PositionedExampleState extends State<_PositionedExample> {
         ),
       )
       .toList();
-  final _dismissibleDropDownItems = _dismissibles.entries
+  final _dismissibleDropDownItems = _positionedDismissibles.entries
       .map(
         (e) => DropdownMenuItem<PositionedDismissible>(
           value: e.value,
@@ -56,9 +58,9 @@ class _PositionedExampleState extends State<_PositionedExample> {
       )
       .toList();
 
-  var _selectedAnimator = _animators.values.first;
+  var _selectedAnimator = _positionedAnimators.values.first;
   var _selectedPosition = EasyDialogPosition.top;
-  var _selectedDismissible = _dismissibles.values.first;
+  var _selectedDismissible = _positionedDismissibles.values.first;
   var _isAutoHide = false;
   var _autoHideDuration = 300.0;
 
