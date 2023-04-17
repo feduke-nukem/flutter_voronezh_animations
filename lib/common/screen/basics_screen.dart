@@ -168,6 +168,10 @@ class _ColoredBoxState extends State<_ColoredBox>
   /// округляет их до меньшего, проще говоря, использует [double.floor].
   ///
   /// * [IntTween] - то же самое, что и [StepTween], но использует [double.round].
+  ///
+  /// * [BoxConstraintsTween], [DecorationTween], [EdgeInsetsTween],
+  /// [EdgeInsetsGeometryTween], [BorderRadiusTween], [BorderTween],
+  /// [Matrix4Tween], [TextStyleTween] - набор твинов из ImplicitAnimations
   final _colorTween = ColorTween(begin: Colors.purple, end: Colors.teal);
 
   /// ### 1-ый способ создания анимации с применением кривой.

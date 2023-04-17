@@ -9,21 +9,28 @@ class TipsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Tips'),
-          bottom: const TabBar(tabs: [
-            Tab(
-              text: 'declarative',
-            ),
-            Tab(
-              text: 'controller value',
-            ),
-          ]),
+          bottom: const TabBar(
+            tabs: [
+              Tab(
+                text: 'declarative',
+              ),
+              Tab(
+                text: 'tween animation builder',
+              ),
+              Tab(
+                text: 'controller value',
+              ),
+            ],
+            isScrollable: true,
+          ),
         ),
         body: const TabBarView(children: [
           _DeclarativeAnimationExample(),
+          _TweenBuilderExample(),
           _AnimationControllerValueMutationExample(),
         ]),
       ),
@@ -391,4 +398,32 @@ class _AnimationControllerStateValueMutationExample
   /// Таким образом можно иметь весьма интерактивные анимации как эта.
   void _onPanUpdate(DragUpdateDetails details) =>
       animationController.value += details.delta.dy / 100;
+}
+
+class _TweenBuilderExample extends StatelessWidget {
+  const _TweenBuilderExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: TweenAnimationBuilder(
+        curve: Curves.bounceOut,
+        onEnd: () => ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Tween has been animated'),
+          ),
+        ),
+        builder: (context, value, child) => ColoredBox(
+          color: value!,
+          child: child,
+        ),
+        duration: const Duration(seconds: 1),
+        tween: ColorTween(begin: Colors.brown, end: Colors.red),
+        child: const SizedBox(
+          width: 150,
+          height: 150.0,
+        ),
+      ),
+    );
+  }
 }

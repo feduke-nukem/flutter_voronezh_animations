@@ -13,7 +13,7 @@ dependencies:
   flutter_animate: ^4.1.1+1
   flutter_easy_dialogs: ^2.0.8
   full_screen_dialog_manager: ^1.0.4
-  positioned_dialog_manager: ^1.0.4
+  positioned_dialog_manager: ^1.0.5
 
 dev_dependencies:
   flutter_test:

@@ -151,10 +151,10 @@ packages:
     dependency: "direct main"
     description:
       name: positioned_dialog_manager
-      sha256: "8e139ae3031d70240494d556dd8cf52639d56fa4b92b73f8600c5845deafe231"
+      sha256: a12b5ea13cc812e4d8b45048d1d058318f7c8fdb8f2d5e49766615e05277496c
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.5"
   sky_engine:
     dependency: transitive
     description: flutter
