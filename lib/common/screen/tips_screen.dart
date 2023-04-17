@@ -124,10 +124,11 @@ class _DeclarativeExpansionState extends State<_DeclarativeExpansion>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(duration: _expandDuration, vsync: this);
+    _controller = AnimationController(
+        duration: _expandDuration,
+        vsync: this,
+        value: widget.isExpanded ? 1.0 : 0.0);
     _heightFactor = _controller.drive(_curveTween);
-
-    if (widget.isExpanded) _controller.value = 1.0;
   }
 
   @override
@@ -341,6 +342,34 @@ class __FavoriteIconState extends State<_FavoriteIcon>
   }
 }
 
+class _TweenBuilderExample extends StatelessWidget {
+  const _TweenBuilderExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: TweenAnimationBuilder(
+        curve: Curves.bounceOut,
+        onEnd: () => ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Tween has been animated'),
+          ),
+        ),
+        builder: (context, value, child) => ColoredBox(
+          color: value!,
+          child: child,
+        ),
+        duration: const Duration(seconds: 1),
+        tween: ColorTween(begin: Colors.brown, end: Colors.red),
+        child: const SizedBox(
+          width: 150,
+          height: 150.0,
+        ),
+      ),
+    );
+  }
+}
+
 class _AnimationControllerValueMutationExample extends StatefulWidget {
   const _AnimationControllerValueMutationExample();
 
@@ -398,32 +427,4 @@ class _AnimationControllerStateValueMutationExample
   /// Таким образом можно иметь весьма интерактивные анимации как эта.
   void _onPanUpdate(DragUpdateDetails details) =>
       animationController.value += details.delta.dy / 100;
-}
-
-class _TweenBuilderExample extends StatelessWidget {
-  const _TweenBuilderExample({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: TweenAnimationBuilder(
-        curve: Curves.bounceOut,
-        onEnd: () => ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Tween has been animated'),
-          ),
-        ),
-        builder: (context, value, child) => ColoredBox(
-          color: value!,
-          child: child,
-        ),
-        duration: const Duration(seconds: 1),
-        tween: ColorTween(begin: Colors.brown, end: Colors.red),
-        child: const SizedBox(
-          width: 150,
-          height: 150.0,
-        ),
-      ),
-    );
-  }
 }

@@ -32,7 +32,6 @@ class _PositionedExample extends StatefulWidget {
 }
 
 class _PositionedExampleState extends State<_PositionedExample> {
-  final _easyDialogManagersProvider = FlutterEasyDialogs.provider;
   final _animatorsDropDownItems = _positionedAnimators.entries
       .map(
         (e) => DropdownMenuItem<PositionedAnimator>(
@@ -131,12 +130,12 @@ class _PositionedExampleState extends State<_PositionedExample> {
             child: const Text('Show'),
           ),
           ElevatedButton(
-            onPressed: _easyDialogManagersProvider.hideAllPositioned,
+            onPressed: FlutterEasyDialogs.provider.hideAllPositioned,
             child: const Text('Hide all'),
           ),
           ElevatedButton(
             onPressed: () =>
-                _easyDialogManagersProvider.hidePositioned(_selectedPosition),
+                FlutterEasyDialogs.provider.hidePositioned(_selectedPosition),
             child: const Text('Hide by position'),
           ),
         ],
@@ -145,7 +144,7 @@ class _PositionedExampleState extends State<_PositionedExample> {
   }
 
   void _show() {
-    _easyDialogManagersProvider.showPositioned(
+    FlutterEasyDialogs.provider.showPositioned(
       PositionedShowParams(
         dismissible: _selectedDismissible,
         animator: _selectedAnimator,

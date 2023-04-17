@@ -166,9 +166,7 @@ class __ProxyExampleState extends State<_ProxyExample>
   late final _reverseAnimation = CurvedAnimation(
     parent: animationController,
     curve: Curves.easeIn,
-  ).drive(
-    Tween<double>(begin: 350.0, end: 200.0),
-  );
+  ).drive(Tween<double>(begin: 350.0, end: 200.0));
 
   late final _animation = ProxyAnimation(_forwardAnimation);
 
@@ -220,16 +218,12 @@ class __TrainHopingExampleState extends State<_TrainHopingExample>
   late final _firstAnimation = CurvedAnimation(
     parent: animationController,
     curve: Curves.fastOutSlowIn,
-  ).drive(
-    Tween<double>(begin: 100.0, end: 200.0),
-  );
+  ).drive(Tween<double>(begin: 100.0, end: 200.0));
 
   late final _secondAnimation = CurvedAnimation(
     parent: animationController,
     curve: Curves.bounceInOut,
-  ).drive(
-    Tween<double>(begin: 150.0, end: 50.0),
-  );
+  ).drive(Tween<double>(begin: 150.0, end: 50.0));
 
   late final _animation = TrainHoppingAnimation(
     _firstAnimation,
@@ -286,9 +280,7 @@ class __CompoundExampleState extends State<_CompoundExample>
       0.3,
       curve: Curves.fastOutSlowIn,
     ),
-  ).drive(
-    Tween<double>(begin: 1.0, end: 1.5),
-  );
+  ).drive(Tween<double>(begin: 1.0, end: 1.5));
 
   late final _secondAnimation = CurvedAnimation(
     parent: animationController,
@@ -297,9 +289,7 @@ class __CompoundExampleState extends State<_CompoundExample>
       1.0,
       curve: Curves.bounceInOut,
     ),
-  ).drive(
-    Tween<double>(begin: 1.25, end: 2.0),
-  );
+  ).drive(Tween<double>(begin: 1.0, end: 2.0));
 
   /// По сути может быть использовано в качестве упрощения комбинации нескольких анимаций.
   late final _animation = MultiplyAnimation(

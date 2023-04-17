@@ -199,15 +199,13 @@ class _ColoredBoxState extends State<_ColoredBox>
   /// Особо нечего тут сказать, кроме того, что в таких простых случаях, можно
   /// напрямую использовать значение [AnimationController.value] в виджетах.
   late final _opacityAnimation =
-      _opacityAnimationController.drive(_opacityTween);
+      _opacityTween.animate(_opacityAnimationController);
 
   final _sizeTween = Tween<double>(begin: 20.0, end: 150.0);
 
-  late final _sizeAnimation = _sizeAnimationController.drive(
-    _sizeTween.chain(
-      CurveTween(curve: Curves.fastLinearToSlowEaseIn),
-    ),
-  );
+  late final _sizeAnimation = _sizeTween
+      .chain(CurveTween(curve: Curves.fastLinearToSlowEaseIn))
+      .animate(_sizeAnimationController);
 
   @override
   Widget build(BuildContext context) {

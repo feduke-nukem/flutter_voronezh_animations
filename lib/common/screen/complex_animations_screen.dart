@@ -75,8 +75,8 @@ class _CookieLoaderState extends State<_CookieLoader>
 
   /// Комбинируем анимации для упрощения их применения в [AnimatedBuilder]
   late final _rotateAnimation = MultiplyAnimation(
-    first: _rotateLeftAnimation,
-    next: _rotateRightAnimation,
+    next: _rotateLeftAnimation,
+    first: _rotateRightAnimation,
   );
 
   late final _scaleUpInnerAnimation = CurvedAnimation(
@@ -320,7 +320,7 @@ class _AbobusState extends State<_Abobus> with TickerProviderStateMixin {
         builder: (_) => Material(
           color: Colors.transparent,
           child: AnimatedBuilder(
-            animation: _textAnimationController.view,
+            animation: _textAnimationController,
             builder: (_, child) => Center(
               child: Stack(
                 children: [
@@ -364,39 +364,40 @@ class _AbobusState extends State<_Abobus> with TickerProviderStateMixin {
             ),
           ),
         ),
-        Scaffold(
-          backgroundColor: Colors.transparent,
-          body: SafeArea(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Center(
-                      child: AnimatedBuilder(
-                        animation: _abobusScaleAnimation,
-                        builder: (context, child) => Transform.scale(
-                          scale: _abobusScaleAnimation.value,
+        SafeArea(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Center(
+                    child: AnimatedBuilder(
+                      animation: _abobusAnimationController,
+                      builder: (context, child) => Transform.scale(
+                        scale: _abobusScaleAnimation.value,
 
-                          /// Таким образом мы можем применять цвет к виджетам
-                          /// контроля над которыми мы фактически не имеем.
-                          child: ColorFiltered(
-                            colorFilter: ColorFilter.mode(
-                              _abobusColorAnimation.value!,
-                              BlendMode.srcIn,
-                            ),
-                            child: child,
+                        /// Таким образом мы можем применять цвет к виджетам
+                        /// контроля над которыми мы фактически не имеем.
+                        child: ColorFiltered(
+                          colorFilter: ColorFilter.mode(
+                            _abobusColorAnimation.value!,
+                            BlendMode.srcIn,
                           ),
+                          child: child,
                         ),
-                        child: Image.asset('assets/abobus.png'),
                       ),
+                      child: Image.asset('assets/abobus.png'),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-          floatingActionButton: FloatingActionButton(
+        ),
+        Positioned(
+          bottom: 50.0,
+          right: 20.0,
+          child: FloatingActionButton(
             onPressed: _playAnimation,
             child: AnimatedIcon(
               icon: AnimatedIcons.play_pause,
