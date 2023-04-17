@@ -5,5 +5,5 @@ class MultiplyAnimation extends CompoundAnimation<double> {
   MultiplyAnimation({required super.first, required super.next});
 
   @override
-  get value => first.value * next.value;
+  double get value => first.value * next.value;
 }
