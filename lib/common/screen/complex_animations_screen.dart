@@ -435,7 +435,7 @@ class _AbobusState extends State<_Abobus> with TickerProviderStateMixin {
     await _textAnimationController.forward();
 
     /// Задержка перед обратным воспроизведением
-    await Future<void>.delayed(const Duration(milliseconds: 1000));
+    await Future<void>.delayed(const Duration(seconds: 1));
 
     /// Подменяем анимацию текста, так как хотим, чтобы на [reverse] было другое поведение
     _textScaleAnimation.parent = _textScaleDisappearAnimation;
