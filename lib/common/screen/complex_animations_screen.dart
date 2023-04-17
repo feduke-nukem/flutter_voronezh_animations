@@ -53,10 +53,12 @@ class _CookieLoaderState extends State<_CookieLoader>
   late final _cookieAnimationController = AnimationController(
     vsync: this,
     duration: _cookieDuration,
+    animationBehavior: AnimationBehavior.preserve,
   );
   late final _textAnimationController = AnimationController(
     vsync: this,
     duration: _cookieDuration,
+    animationBehavior: AnimationBehavior.preserve,
   );
 
   /// Используем [CurvedAnimation] в связке с [Interval] и добиваемся эффекта
