@@ -41,6 +41,8 @@ class ComplexAnimationsScreen extends StatelessWidget {
 /// Крепкое печево.
 ///
 /// Пример Staggered анимаций.
+///
+/// Эффект волны/пульсации вдохновлён из https://youtu.be/YqzUIGsAJQA?t=4618
 class _CookieLoader extends StatefulWidget {
   const _CookieLoader({Key? key}) : super(key: key);
 
